@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Lorenzo Rocco Brasil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* animações */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #D1D5DB;
+            scroll-behavior: smooth;
+        }
+        .navbar-glass {
+            background-color: rgba(17, 24, 39, 0.8); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #9333ea 0%, #3b0764 100%); /* Gradiente Roxo */
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 navbar-glass">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors">
+                        LRB
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre Mim</a>
+                        <a href="#experience" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Experiência</a>
+                        <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Educação</a>
+                        <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Projetos</a>
+                        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Sobre Mim</a>
+                <a href="#experience" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Experiência</a>
+                <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Educação</a>
+                <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Projetos</a>
+                <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="text-center px-4">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGUkVJps7FoIA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1721215796584?e=1755129600&v=beta&t=LaU8MVzMn88JBTR75E7SJuGpmESN7bPqXqC1zD16SHo" alt="Foto de Lorenzo Rocco Brasil" class="w-36 h-36 md:w-48 md:h-48 rounded-full mx-auto mb-8 border-4 border-purple-300 shadow-lg">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
+                Lorenzo Rocco Brasil
+            </h1>
+            <p class="text-xl sm:text-2xl md:text-3xl font-light mb-8">
+                <span id="typed-title"></span><span class="typed-cursor">|</span>
+            </p>
+            <a href="#projects" class="bg-white text-purple-700 hover:bg-purple-50 transition-colors font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105">
+                Ver Projetos
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+        <!-- About Section -->
+        <section id="about" class="fade-in-section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-400">Sobre Mim</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                    <p class="text-lg leading-relaxed mb-6">
+                        Olá! Sou Lorenzo, um Desenvolvedor Fullstack de 22 anos apaixonado por criar soluções web inovadoras e automatizar processos. Tenho experiência prática com a Power Platform (Power Apps, Power Automate), desenvolvimento de projeto simples com JavaScript e no desenvolvimento de landing pages dinâmicas.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Busco constantemente aprender novas tecnologias e aprimorar minhas habilidades para entregar projetos de alta qualidade que realmente façam a diferença, buscando facilitar e atender as solicitações do cliente
+                    </p>
+                </div>
+                 <div class="text-center bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGUkVJps7FoIA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1721215796584?e=1755129600&v=beta&t=LaU8MVzMn88JBTR75E7SJuGpmESN7bPqXqC1zD16SHo" alt="Ilustração de perfil" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-purple-500">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-2">Lorenzo Rocco Brasil</h3>
+                    <p class="text-gray-400">São Bernardo do Campo, SP</p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold text-center mb-8 text-purple-400">Principais Habilidades</h3>
+                <div class="flex flex-wrap justify-center items-start">
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">JavaScript</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Python</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">HTML5</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">CSS3</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">React</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Bootstrap</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Power Apps</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Power Automate</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Power BI</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">MySQL</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">API REST</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">oData</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">PHP</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Java</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Git</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Scrum</span>
+                    <span class="bg-purple-600 text-white text-xs font-semibold mr-2 mb-2 px-3 py-1.5 rounded-full hover:bg-purple-500 transition-colors">Kanban</span>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold text-center mb-8 text-purple-400">Idiomas</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 bg-gray-800 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                        <i class="fas fa-language text-3xl text-purple-500 mb-2"></i>
+                        <h4 class="font-semibold text-lg">Português</h4>
+                        <p class="text-gray-400">Nativo</p>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                        <i class="fas fa-language text-3xl text-purple-500 mb-2"></i>
+                        <h4 class="font-semibold text-lg">Inglês</h4>
+                        <p class="text-gray-400">Avançado</p>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                        <i class="fas fa-language text-3xl text-purple-500 mb-2"></i>
+                        <h4 class="font-semibold text-lg">Espanhol</h4>
+                        <p class="text-gray-400">Intermediário</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="fade-in-section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-400">Experiência Profissional</h2>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                    <h3 class="text-2xl font-semibold text-purple-400">Consultor/Desenvolvedor PPM Júnior</h3>
+                    <span class="text-gray-400 text-sm mt-1 sm:mt-0">2023 - Presente</span>
+                </div>
+                <p class="text-lg font-medium text-gray-200 mb-4">MLPro - Soluções PPM</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300 leading-relaxed">
+                    <li>Desenvolvimento de soluções personalizadas para gerenciamento de portfólio de projetos utilizando Power Apps e Power Automate.</li>
+                    <li>Automação de processos internos e melhoria da eficiência operacional dos clientes.</li>
+                    <li>Desenvolvimento de scripts em JavaScript para otimização de processos.</li>
+                    <li>Colaboração com equipes multidisciplinares para levantamento de requisitos e implementação de soluções.</li>
+                    <li>Utilização de ferramentas como Power BI para criação de dashboards e relatórios interativos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="fade-in-section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-400">Formação Acadêmica</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-1">Tecnólogo em Informática para Negócios</h3>
+                    <p class="text-gray-400 mb-2">Fatec SBC (Jan/2021 - Jul/2024)</p>
+                    <p class="text-gray-300">Principais aprendizados: Java, MariaDB, HTML, CSS, PHP, MySQL, Power BI.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-1">Análise e Desenvolvimento de Sistemas</h3>
+                    <p class="text-gray-400 mb-2">SENAC (Mar/2025 - Ago/2027)</p>
+                    <p class="text-gray-300">Foco em: PHP, Bootstrap, React, jQuery, JavaScript.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in-section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-400">Meus Projetos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Exemplo de Projeto 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105 flex flex-col">
+                    <img src="https://i.ibb.co/1GB5hb77/imagem-2025-06-10-094014670.png" alt="Imagem do Projeto 1" class="rounded-md mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-2">Athon</h3>
+                    <p class="text-gray-400 text-sm mb-3 flex-grow">Athon é uma plataforma web que conecta atletas amadores a patrocinadores, desenvolvida como um TCC da FATEC. O frontend foi criado com HTML, CSS e JavaScript puros, enquanto o backend utiliza uma API RESTful em Node.js com Express, Sequelize para o banco de dados MariaDB, e JWT para autenticação, criando uma ponte tecnológica para o fomento do esporte.</p>
+                    <div class="mt-auto">
+                        <a href="https://github.com/lorocco/TCC-Athon" target="_blank" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-4 rounded-md transition-colors text-sm">Ver Detalhes</a>
+                    </div>
+                </div>
+                <!-- Exemplo de Projeto 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105 flex flex-col">
+                    <img src="https://placehold.co/600x400/374151/A855F7?text=Projeto+2" alt="Imagem do Projeto 2" class="rounded-md mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-2">Nome do Projeto 2</h3>
+                    <p class="text-gray-400 text-sm mb-3 flex-grow">Landing Page desenvolvida com Bootstrap e JavaScript para um cliente X.</p>
+                     <div class="mt-auto">
+                        <a href="#" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-4 rounded-md transition-colors text-sm">Ver Detalhes</a>
+                    </div>
+                </div>
+                <!-- Adicione mais projetos aqui -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105 flex flex-col">
+                     <img src="https://placehold.co/600x400/374151/A855F7?text=Projeto+3" alt="Imagem do Projeto 3" class="rounded-md mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-purple-400 mb-2">Nome do Projeto 3</h3>
+                    <p class="text-gray-400 text-sm mb-3 flex-grow">Automação de processo Y utilizando Python e APIs REST.</p>
+                     <div class="mt-auto">
+                        <a href="#" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-4 rounded-md transition-colors text-sm">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-12 text-gray-400">Mais projetos serão adicionados em breve!</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in-section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-400">Entre em Contato</h2>
+            <div class="max-w-lg mx-auto text-center bg-gray-800 p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-purple-500/50 hover:scale-105">
+                <p class="text-lg mb-6">
+                    Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para me contatar!
+                </p>
+                <div class="space-y-4">
+                    <a href="mailto:lorenzorbrasil@gmail.com" class="flex items-center justify-center text-lg text-purple-400 hover:text-purple-300 transition-colors">
+                        <i class="fas fa-envelope mr-3 text-xl"></i>
+                        lorenzorbrasil@gmail.com
+                    </a>
+                    <a href="tel:+5511959240547" class="flex items-center justify-center text-lg text-purple-400 hover:text-purple-300 transition-colors">
+                        <i class="fas fa-phone mr-3 text-xl"></i>
+                        +55 11 95924-0547
+                    </a>
+                    <!-- Adicione aqui links para LinkedIn, GitHub, etc. se desejar -->
+                    <!-- Exemplo:-->
+                    <a href="https://www.linkedin.com/in/lorenzo-rocco-brasil/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-lg text-purple-400 hover:text-purple-300 transition-colors">
+                        <i class="fab fa-linkedin mr-3 text-xl"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/lorocco" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-lg text-purple-400 hover:text-purple-300 transition-colors">
+                        <i class="fab fa-github mr-3 text-xl"></i>
+                        GitHub
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Lorenzo Rocco Brasil. Todos os direitos reservados.</p>
+            <p class="text-sm mt-1">Desenvolvido com HTML5, CSS3, JavaScript e Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para Typed.js (efeito de digitação)
+        const typedTextSpan = document.getElementById("typed-title");
+        const textArray = ["Desenvolvedor Fullstack", "Especialista em Power Platform", "Experiente em Automação", "Dedicado a Aprender e Inovar"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay entre as frases
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+
+        // Script para Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+            // Alterna ícones do botão hamburguer/fechar
+            mobileMenuButton.querySelectorAll('svg').forEach(svg => svg.classList.toggle('hidden'));
+        });
+
+        // Fecha o menu mobile ao clicar em um link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenuButton.click(); // Simula o clique para fechar
+                }
+            });
+        });
+        
+        // Script para Navbar transparente ao rolar
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.remove('navbar-glass');
+                navbar.style.backgroundColor = '#111827'; // bg-gray-900 sólido
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.add('navbar-glass');
+                navbar.style.backgroundColor = 'rgba(17, 24, 39, 0.8)';
+            }
+        };
+
+        // Script para animação de Fade-in nas seções
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            root: null, // relativo ao viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% da seção visível
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Para a observação após a animação
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
